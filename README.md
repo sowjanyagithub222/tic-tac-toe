@@ -26,10 +26,10 @@ Install the following:
 
 
 TicTacToe/
-├── TicTacToe.Api/       # .NET Web API
-├── TicTacToe.Tests/     # xUnit unit tests
-└── tic-tac-toe-ui/      # Angular frontend
-```
+  TicTacToe.Api/       # .NET Web API
+  TicTacToe.Tests/     # xUnit unit tests
+  tic-tac-toe-ui/      # Angular frontend
+  
 
 
 
