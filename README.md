@@ -24,14 +24,13 @@ Install the following:
 
 ## Project Structure
 
-
-TicTacToe/
-  TicTacToe.Api/       # .NET Web API
-  TicTacToe.Tests/     # xUnit unit tests
-  tic-tac-toe-ui/      # Angular frontend
-  
-
-
+```text
+├── TicTacToe/
+│   ├── TicTacToe.Api/       # .NET Web API
+│   ├── TicTacToe.Tests/     # xUnit unit tests
+│   └── tic-tac-toe-ui/      # Angular frontend
+└── README.md
+```
 
 ## Setup and Run
 
