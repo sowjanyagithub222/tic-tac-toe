@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MoveHistory } from './move-history';
+
+describe('MoveHistory', () => {
+  let component: MoveHistory;
+  let fixture: ComponentFixture<MoveHistory>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [MoveHistory],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(MoveHistory);
+    component = fixture.componentInstance;
+    await fixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

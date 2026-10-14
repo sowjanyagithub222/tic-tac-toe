@@ -1,0 +1,164 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.game-controls {
+  padding: 22px;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid #e7eaf3;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgb(31 41 55 / 4%);
+}
+
+.controls-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.controls-heading h2 {
+  margin: 0;
+  color: #202747;
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.controls-heading p {
+  margin: 5px 0 0;
+  color: #7b8299;
+  font-size: 13px;
+}
+
+.setup-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 13px;
+  background: #f0edff;
+  color: #6954d9;
+  font-size: 22px;
+}
+
+.mode-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mode-selection label {
+  color: #424b65;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mode-selection select {
+  width: 100%;
+  max-width: 360px;
+  min-height: 44px;
+  padding: 10px 38px 10px 12px;
+  border: 1px solid #dce1ee;
+  border-radius: 10px;
+  background-color: #fbfcff;
+  color: #252d48;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.mode-selection select:focus-visible {
+  outline: 3px solid rgb(105 84 217 / 20%);
+  border-color: #6954d9;
+}
+
+.mode-description {
+  margin: 12px 0 18px;
+  color: #737b92;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.buttons button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 10px 15px;
+  border: 1px solid #dce1ee;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #424b65;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.buttons button:not(:disabled):hover {
+  transform: translateY(-1px);
+  background: #f7f8fc;
+  border-color: #bfc6dc;
+}
+
+.buttons .primary-button {
+  background: #6954d9;
+  color: #ffffff;
+  border-color: #6954d9;
+}
+
+.buttons .primary-button:not(:disabled):hover {
+  background: #5842c6;
+  border-color: #5842c6;
+}
+
+.buttons .reset-button {
+  color: #c24151;
+  border-color: #f0cbd0;
+  background: #fffafb;
+}
+
+.buttons .reset-button:not(:disabled):hover {
+  background: #fff0f2;
+  border-color: #e7aab3;
+}
+
+.buttons button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.buttons button:focus-visible {
+  outline: 3px solid rgb(105 84 217 / 25%);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .game-controls {
+    padding: 17px;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+}

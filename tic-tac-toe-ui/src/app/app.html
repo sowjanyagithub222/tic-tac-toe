@@ -1,0 +1,46 @@
+
+<main class="app-shell">
+  <header class="app-header">
+    <div class="brand-icon" aria-hidden="true">✕</div>
+    <div class="header-copy">
+      <h1>Tic Tac Toe</h1>
+      <p>A little strategy. A lot of fun.</p>
+    </div>
+  </header>
+
+  <p *ngIf="errorMessage" class="app-error" role="alert">
+    {{ errorMessage }}
+  </p>
+
+  <section class="game-panel" aria-label="Tic Tac Toe game">
+    <app-game-controls
+      [gameState]="gameState"
+      (newGame)="startNewGame($event)"
+      (undo)="undoLastMove()"
+      (reset)="resetGame()"
+      [selectedMode]="selectedMode"
+      (selectedModeChange)="selectedMode = $event">
+    </app-game-controls>
+
+    <app-game-board
+      [gameState]="gameState"
+      [isLoading]="isLoading"
+      (move)="makeMove($event)">
+    </app-game-board>
+  </section>
+
+  <section class="game-details" aria-label="Game information">
+    <app-move-history
+      [moves]="gameState?.moveHistory ?? []">
+    </app-move-history>
+
+    <app-scoreboard
+      [scoreboard]="scoreboard"
+      (resetScoreboard)="onResetScoreboard()">
+    </app-scoreboard>
+  </section>
+
+  <footer class="app-footer">
+    Made for fun <span aria-hidden="true">♥</span> One move at a time
+  </footer>
+</main>

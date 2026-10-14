@@ -1,0 +1,44 @@
+
+<section class="scoreboard-panel">
+  <div class="scoreboard-header">
+    <div>
+      <h2>Scoreboard</h2>
+      <p class="panel-subtitle">Your results across completed games.</p>
+    </div>
+
+    <button
+      type="button"
+      class="reset-scoreboard-button"
+      (click)="onResetScoreboard()"
+      [disabled]="!scoreboard"
+    >
+      <span aria-hidden="true">↻</span>
+      Reset
+    </button>
+  </div>
+
+  <p *ngIf="!scoreboard" class="empty-message" role="status">
+    <span class="loading-dot" aria-hidden="true"></span>
+    Loading scoreboard...
+  </p>
+
+  <div class="scores" *ngIf="scoreboard as scores">
+    <div class="score-card score-x">
+      <span class="score-icon" aria-hidden="true">X</span>
+      <span class="score-label">X Wins</span>
+      <strong>{{ scores.xWins }}</strong>
+    </div>
+
+    <div class="score-card score-o">
+      <span class="score-icon" aria-hidden="true">O</span>
+      <span class="score-label">O Wins</span>
+      <strong>{{ scores.oWins }}</strong>
+    </div>
+
+    <div class="score-card score-draws">
+      <span class="score-icon" aria-hidden="true">＝</span>
+      <span class="score-label">Draws</span>
+      <strong>{{ scores.draws }}</strong>
+    </div>
+  </div>
+</section>

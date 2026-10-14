@@ -1,0 +1,36 @@
+
+<div class="game-board-container">
+  <p class="status" aria-live="polite">
+    {{ getStatusMessage() }}
+  </p>
+
+  <div
+    class="game-board"
+    *ngIf="gameState as game"
+    role="group"
+    aria-label="Tic Tac Toe board">
+
+    <button
+      type="button"
+      class="cell"
+      *ngFor="let cell of game.board; let i = index"
+      [class.cell-x]="cell === 'X'"
+      [class.cell-o]="cell === 'O'"
+      [class.winning-cell]="game.winningCells?.includes(i)"
+      [disabled]="cell !== null || game.status !== 'InProgress' || isLoading"
+      [attr.aria-label]="getCellLabel(i)"
+      (click)="onCellClick(i)">
+
+      {{ cell ?? '' }}
+    </button>
+  </div>
+
+  <p *ngIf="isLoading" class="info-message" aria-live="polite">
+    <span class="loading-dot"></span>
+    Processing move...
+  </p>
+
+  <p *ngIf="errorMessage" class="error-message" role="alert">
+    {{ errorMessage }}
+  </p>
+</div>

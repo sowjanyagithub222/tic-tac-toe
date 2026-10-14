@@ -1,0 +1,50 @@
+<section class="history-panel">
+  <div class="panel-heading">
+    <div>
+      <h2>Move History</h2>
+      <p class="panel-subtitle">Track each move in the current game.</p>
+    </div>
+
+    <span class="move-count">{{ moves.length }}</span>
+  </div>
+
+  <div *ngIf="moves.length === 0" class="empty-state">
+    <span class="empty-icon" aria-hidden="true">↗</span>
+    <p class="empty-title">No moves yet</p>
+    <p class="empty-message">
+      Make your first move to see the game history here.
+    </p>
+  </div>
+
+  <div class="table-wrapper" *ngIf="moves.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Move</th>
+          <th scope="col">Player</th>
+          <th scope="col">Position</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let move of moves">
+          <td class="move-number">{{ move.moveNumber }}</td>
+
+          <td>
+            <span
+              class="player-marker"
+              [class.player-x]="move.player === 'X'"
+              [class.player-o]="move.player === 'O'"
+            >
+              {{ move.player }}
+            </span>
+          </td>
+
+          <td class="position">
+            Row {{ move.row + 1 }}, Column {{ move.column + 1 }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+<section class="game-controls">
+  <div class="controls-heading">
+    <div>
+      <h2>Game Setup</h2>
+      <p>Choose how you want to play.</p>
+    </div>
+    <span class="setup-icon" aria-hidden="true">⚙</span>
+  </div>
+
+  <div class="mode-selection">
+    <label for="gameMode">Game mode</label>
+
+    <select
+      id="gameMode"
+      [value]="selectedMode"
+      (change)="onModeChange($any($event.target).value)"
+    >
+      <option value="TwoPlayer">Two Player</option>
+      <option value="Computer">Play Against Computer</option>
+    </select>
+  </div>
+
+  <p class="mode-description">
+    {{
+      selectedMode === 'Computer'
+        ? 'You play as X. The computer plays as O.'
+        : 'Two players take turns as X and O.'
+    }}
+  </p>
+
+  <div class="buttons">
+    <button
+      type="button"
+      class="primary-button"
+      (click)="onNewGame()"
+    >
+      <span aria-hidden="true">＋</span>
+      New Game
+    </button>
+
+    <button
+      type="button"
+      class="secondary-button"
+      (click)="onUndo()"
+      [disabled]="!canUndo"
+    >
+      <span aria-hidden="true">↶</span>
+      Undo Last Move
+    </button>
+
+    <button
+      type="button"
+      class="reset-button"
+      (click)="onReset()"
+      [disabled]="!canReset"
+    >
+      <span aria-hidden="true">↻</span>
+      Reset Game
+    </button>
+  </div>
+</section>

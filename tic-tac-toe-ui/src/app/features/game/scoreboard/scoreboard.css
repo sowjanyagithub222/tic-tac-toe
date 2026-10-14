@@ -1,0 +1,228 @@
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.scoreboard-panel {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 22px;
+  border: 1px solid #e7eaf3;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgb(31 41 55 / 4%);
+}
+
+.scoreboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.scoreboard-header h2 {
+  margin: 0;
+  color: #202747;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.panel-subtitle {
+  margin: 5px 0 0;
+  color: #858ba0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.reset-scoreboard-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 8px 11px;
+  border: 1px solid #dce1ee;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #525b74;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.reset-scoreboard-button:not(:disabled):hover {
+  background: #f7f8fc;
+  border-color: #bfc6dc;
+}
+
+.reset-scoreboard-button:focus-visible {
+  outline: 3px solid rgb(105 84 217 / 25%);
+  outline-offset: 2px;
+}
+
+.reset-scoreboard-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.scores {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.score-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 18px 8px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  text-align: center;
+  transition: transform 160ms ease;
+}
+
+.score-card:hover {
+  transform: translateY(-2px);
+}
+
+.score-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  font-size: 17px;
+  font-weight: 850;
+}
+
+.score-label {
+  color: #737b92;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.score-card strong {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.score-x {
+  background: #f3f1ff;
+  border-color: #e8e3ff;
+}
+
+.score-x .score-icon {
+  background: #e4dfff;
+  color: #6250d5;
+}
+
+.score-x strong {
+  color: #6250d5;
+}
+
+.score-o {
+  background: #fff4ec;
+  border-color: #ffeadb;
+}
+
+.score-o .score-icon {
+  background: #ffe5d2;
+  color: #d66b2e;
+}
+
+.score-o strong {
+  color: #d66b2e;
+}
+
+.score-draws {
+  background: #f3f5fa;
+  border-color: #e9edf5;
+}
+
+.score-draws .score-icon {
+  background: #e4e8f1;
+  color: #59647e;
+}
+
+.score-draws strong {
+  color: #424b65;
+}
+
+.empty-message {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #858ba0;
+  font-size: 13px;
+}
+
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: #9180ec;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 400px) {
+  .scoreboard-panel {
+    padding: 17px;
+  }
+
+  .scoreboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .scores {
+    gap: 7px;
+  }
+
+  .score-card {
+    padding: 14px 4px;
+  }
+
+  .score-label {
+    font-size: 11px;
+  }
+
+  .score-card strong {
+    font-size: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .score-card,
+  .reset-scoreboard-button {
+    transition: none;
+  }
+
+  .loading-dot {
+    animation: none;
+  }
+}
